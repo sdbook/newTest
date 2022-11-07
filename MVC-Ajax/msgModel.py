@@ -1,5 +1,3 @@
-#!C:\Program Files\Python310\python.exe
-
 #連線DB
 from dbConfig import conn, cur
 
@@ -29,3 +27,8 @@ def like(id):
 	cur.execute(sql,(id,))
 	conn.commit()
 
+def kill(id):
+	global cur,conn
+	sql="delete from guestbook where id=%s;"
+	cur.execute(sql,(id,))
+	conn.commit()
